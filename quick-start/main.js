@@ -1662,11 +1662,11 @@ var ServersService = /** @class */ (function () {
         var _this = this;
         return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {
             _this.http.get(_this.configUrl + options.api, { params: options.params }).subscribe(function (response) {
-                if (response.msg == 'Unauthorized' && location.hostname != 'localhost') {
-                    window.location.reload();
+                if (response.status !== 0) {
+                    observer.next(response);
                 }
                 else {
-                    observer.next(response);
+                    return false;
                 }
             });
         });
@@ -1676,22 +1676,19 @@ var ServersService = /** @class */ (function () {
         var _this = this;
         return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {
             _this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + options.api, JSON.stringify(options.params), { headers: _this.headers }).subscribe(function (response) {
-                if (response) {
-                    if (response.status == 400) {
-                        _this.msg.info(response.error);
-                    }
-                    else {
-                        observer.next(response);
-                    }
+                _this.msg.info(response.message);
+                if (response.status) {
+                    observer.next();
                 }
                 else {
-                    observer.next();
+                    return false;
                 }
             }, function (error) {
                 if (error.status == 400 || error.status == 404) {
-                    _this.msg.info(error.error.message);
+                    _this.msg.info(error.error);
                 }
                 else {
+                    _this.msg.info('操作成功！');
                     observer.next();
                 }
             });
