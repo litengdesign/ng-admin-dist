@@ -1678,7 +1678,7 @@ var ServersService = /** @class */ (function () {
             _this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + options.api, JSON.stringify(options.params), { headers: _this.headers }).subscribe(function (response) {
                 _this.msg.info(response.message);
                 if (response.status) {
-                    observer.next();
+                    observer.next(response);
                 }
                 else {
                     return false;
