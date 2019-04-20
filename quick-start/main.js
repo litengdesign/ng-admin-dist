@@ -1031,10 +1031,10 @@ var LoginComponent = /** @class */ (function () {
         };
         var postData = this.server.postRxjsData(options);
         postData.subscribe(function (data) {
-            sessionStorage.setItem('token', data.token);
-            _this.AuthService.saveToken(data.token);
             //跳转主页
             _this.router.navigate(['/dashboard/']);
+            sessionStorage.setItem('token', data.token);
+            _this.AuthService.saveToken(data.token);
         });
     };
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1749,7 +1749,7 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     evnName: 'dev',
-    API: 'http://www.hzscbg.com:8080',
+    API: 'http://www.hzscbg.com:4200',
 };
 // API: 'http://www.hzscbg.com:8080',
 /*
