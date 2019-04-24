@@ -1269,7 +1269,7 @@ var PostsComponent = /** @class */ (function () {
             if (element.response) {
                 paramsObj.thumb.push({
                     uid: element.uid,
-                    url: element.response.path
+                    url: element.response.url
                 });
             }
             else {
@@ -1555,7 +1555,7 @@ var ProductsComponent = /** @class */ (function () {
             if (element.response) {
                 paramsObj.thumb.push({
                     uid: element.uid,
-                    url: element.response.path
+                    url: element.response.url
                 });
             }
             else {
