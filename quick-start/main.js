@@ -42,6 +42,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_login_login_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/login/login.component */ "./src/app/pages/login/login.component.ts");
 /* harmony import */ var _app_layout_default_default_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../app/layout/default/default.component */ "./src/app/layout/default/default.component.ts");
 /* harmony import */ var _app_auth_auth_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../app/auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _pages_menus_menus_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/menus/menus.component */ "./src/app/pages/menus/menus.component.ts");
+
 
 
 
@@ -85,6 +87,12 @@ var routes = [
             { path: 'brand', component: _app_pages_categorys_categorys_component__WEBPACK_IMPORTED_MODULE_5__["CategorysComponent"],
                 data: {
                     breadcrumb: '品牌列表'
+                }
+            },
+            {
+                path: 'menus', component: _pages_menus_menus_component__WEBPACK_IMPORTED_MODULE_9__["MenusComponent"],
+                data: {
+                    breadcrumb: '导航管理'
                 }
             },
         ],
@@ -198,6 +206,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(ng2_file_upload__WEBPACK_IMPORTED_MODULE_19__);
 /* harmony import */ var ng2_ckeditor__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ng2-ckeditor */ "./node_modules/ng2-ckeditor/lib/ng2-ckeditor.js");
 /* harmony import */ var ng2_ckeditor__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(ng2_ckeditor__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _pages_menus_menus_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./pages/menus/menus.component */ "./src/app/pages/menus/menus.component.ts");
+
 
 
 
@@ -235,6 +245,7 @@ var AppModule = /** @class */ (function () {
                 _pages_products_products_component__WEBPACK_IMPORTED_MODULE_16__["ProductsComponent"],
                 _pages_categorys_categorys_component__WEBPACK_IMPORTED_MODULE_17__["CategorysComponent"],
                 _pages_posts_posts_component__WEBPACK_IMPORTED_MODULE_18__["PostsComponent"],
+                _pages_menus_menus_component__WEBPACK_IMPORTED_MODULE_21__["MenusComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -586,7 +597,7 @@ var SearchComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app app-header-fixed\">\n  <nz-header [ngClass]=\"{'active': isCollapsed}\">\n    <div class=\"logo animated fadeInLeft\">\n      <span class=\"icon logo-img\">\n      </span>\n      <span class=\"campany-name animated fadeInLeft\" [routerLink]=\"[ '/dashboard' ]\">\n        {{systemName}}\n      </span>\n    </div>\n    <i class=\"trigger\" nz-icon [type]=\"isCollapsed ? 'menu-unfold' : 'menu-fold'\"\n      (click)=\"isCollapsed = !isCollapsed\"></i>\n    <a href=\"http://www.hzscbg.com\" target=\"_blank\" class=\"home-link\">前往首页</a>\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li>\n        <i nz-icon [nzType]=\"fullScreen?'shrink':'arrows-alt'\" nzTheme=\"outline\" (click)=\"fullScreen=!fullScreen\"></i>\n      </li>\n      <li>\n        <span class=\"msg\" (click)=\"openMsg()\">\n          <nz-badge [nzCount]=\"0\">\n            <span class=\"head-example\"><i nz-icon nzType=\"message\" nzTheme=\"outline\"></i></span>\n          </nz-badge>\n        </span>\n      </li>\n      <li>\n        <nz-avatar [nzText]=\"text\" nzSize=\"large\" [ngStyle]=\"{ 'background-color': color }\"\n          style=\"vertical-align: middle;\" (click)=\"userInfoActive = !userInfoActive\">\n        </nz-avatar>\n        <div class=\"userInfo animated fadeInRight\" *ngIf=\"userInfoActive\"> \n          <ul>\n            <li>超级管理员</li>\n            <li>\n              <a nz-popconfirm nzTitle=\"您确定退出吗?\" (nzOnConfirm)=\"logout()\" (nzOnCancel)=\"cancel()\"\n                nzPlacement=\"bottom\">退出账号</a>\n            </li>\n          </ul>\n        </div>\n      </li>\n    </ul>\n  </nz-header>\n  <nz-layout>\n    <nz-sider nzCollapsible [(nzCollapsed)]=\"isCollapsed\" [nzTrigger]=\"triggerTemplate\">\n      <ul nz-menu [nzTheme]=\"'dark'\" [nzMode]=\"'inline'\" [nzInlineCollapsed]=\"isCollapsed\">\n        <li nz-submenu>\n          <span title><i nz-icon type=\"printer\"></i><span class=\"nav-text\">产品管理</span></span>\n          <ul>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/products'\" routerLinkActive=\"active\">产品列表</a>\n            </li>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/categorys'\" [queryParams]=\"{type:'product'}\" routerLinkActive=\"active\">产品分类</a>\n            </li>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/brand'\" [queryParams]=\"{type:'brand'}\" routerLinkActive=\"active\">品牌</a>\n            </li>\n          </ul>\n        </li>\n        <li nz-submenu>\n          <span title><i nz-icon type=\"book\"></i><span class=\"nav-text\">文章管理</span></span>\n          <ul>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/posts'\" routerLinkActive=\"active\">文章列表</a>\n            </li>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/categorys'\" [queryParams]=\"{type:'article'}\" routerLinkActive=\"active\">文章分类</a>\n            </li>\n          </ul>\n        </li>\n        <li nz-menu-item>\n          <span><i nz-icon type=\"setting\"></i><span class=\"nav-text\">网站设置</span></span>\n        </li>\n        <li nz-menu-item>\n          <span><i nz-icon nzType=\"link\" nzTheme=\"outline\"></i><span class=\"nav-text\">友情链接</span></span>\n        </li>\n        <li nz-menu-item>\n          <span><i nz-icon nzType=\"key\" nzTheme=\"outline\"></i><span class=\"nav-text\">关键词管理</span></span>\n        </li>\n      </ul>\n    </nz-sider>\n    <nz-layout>\n      <nz-content style=\"margin:0 16px;\">\n        <nz-breadcrumb [nzAutoGenerate]=\"true\" style=\"margin:1em 0;\">\n          <nz-breadcrumb-item>您所在的位置</nz-breadcrumb-item>\n        </nz-breadcrumb>\n        <div class=\"content\">\n          <router-outlet></router-outlet>\n        </div>\n      </nz-content>\n      <nz-footer style=\"text-align: center;\">©2019 杭州双成办公设备有限公司</nz-footer>\n    </nz-layout>\n    <ng-template #trigger>\n      <i nz-icon type=\"up\"></i>\n    </ng-template>\n  </nz-layout>\n</div>\n<!-- 消息列表 -->\n<nz-drawer [nzClosable]=\"false\" [nzOffsetX]=\"childrenVisible ? 180 : 0\" [nzWidth]=\"320\" [nzVisible]=\"visible\"\n  nzTitle=\"消息列表\" (nzOnClose)=\"close()\">\n  <nz-list [nzDataSource]=\"vegetables\" [nzRenderItem]=\"item\">\n    <ng-template #item let-item>\n      <nz-list-item [nzContent]=\"item\"></nz-list-item>\n    </ng-template>\n  </nz-list>\n  <div class=\"footer\">\n    <button type=\"button\" (click)=\"close()\" class=\"ant-btn\"><span>关闭</span></button>\n  </div>\n</nz-drawer>"
+module.exports = "<div class=\"app app-header-fixed\">\n  <nz-header [ngClass]=\"{'active': isCollapsed}\">\n    <div class=\"logo animated fadeInLeft\">\n      <span class=\"icon logo-img\">\n      </span>\n      <span class=\"campany-name animated fadeInLeft\" [routerLink]=\"[ '/dashboard' ]\">\n        {{systemName}}\n      </span>\n    </div>\n    <i class=\"trigger\" nz-icon [type]=\"isCollapsed ? 'menu-unfold' : 'menu-fold'\"\n      (click)=\"isCollapsed = !isCollapsed\"></i>\n    <a href=\"http://www.hzscbg.com\" target=\"_blank\" class=\"home-link\">前往首页</a>\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li>\n        <i nz-icon [nzType]=\"fullScreen?'shrink':'arrows-alt'\" nzTheme=\"outline\" (click)=\"fullScreen=!fullScreen\"></i>\n      </li>\n      <li>\n        <span class=\"msg\" (click)=\"openMsg()\">\n          <nz-badge [nzCount]=\"0\">\n            <span class=\"head-example\"><i nz-icon nzType=\"message\" nzTheme=\"outline\"></i></span>\n          </nz-badge>\n        </span>\n      </li>\n      <li>\n        <nz-avatar [nzText]=\"text\" nzSize=\"large\" [ngStyle]=\"{ 'background-color': color }\"\n          style=\"vertical-align: middle;\" (click)=\"userInfoActive = !userInfoActive\">\n        </nz-avatar>\n        <div class=\"userInfo animated fadeInRight\" *ngIf=\"userInfoActive\"> \n          <ul>\n            <li>超级管理员</li>\n            <li>\n              <a nz-popconfirm nzTitle=\"您确定退出吗?\" (nzOnConfirm)=\"logout()\" (nzOnCancel)=\"cancel()\"\n                nzPlacement=\"bottom\">退出账号</a>\n            </li>\n          </ul>\n        </div>\n      </li>\n    </ul>\n  </nz-header>\n  <nz-layout>\n    <nz-sider nzCollapsible [(nzCollapsed)]=\"isCollapsed\" [nzTrigger]=\"triggerTemplate\">\n      <ul nz-menu [nzTheme]=\"'dark'\" [nzMode]=\"'inline'\" [nzInlineCollapsed]=\"isCollapsed\">\n        <li nz-submenu>\n          <span title><i nz-icon type=\"printer\"></i><span class=\"nav-text\">产品管理</span></span>\n          <ul>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/products'\" routerLinkActive=\"active\">产品列表</a>\n            </li>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/categorys'\" [queryParams]=\"{type:'product'}\" routerLinkActive=\"active\">产品分类</a>\n            </li>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/brand'\" [queryParams]=\"{type:'brand'}\" routerLinkActive=\"active\">品牌</a>\n            </li>\n          </ul>\n        </li>\n        <li nz-submenu>\n          <span title><i nz-icon type=\"book\"></i><span class=\"nav-text\">文章管理</span></span>\n          <ul>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/posts'\" routerLinkActive=\"active\">文章列表</a>\n            </li>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/categorys'\" [queryParams]=\"{type:'article'}\" routerLinkActive=\"active\">文章分类</a>\n            </li>\n          </ul>\n        </li>\n        <li nz-submenu>\n          <span title><i nz-icon type=\"setting\"></i><span class=\"nav-text\">网站设置</span></span>\n          <ul>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/menus'\" routerLinkActive=\"active\">导航管理</a>\n            </li>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/links'\" routerLinkActive=\"active\">友情链接</a>\n            </li>\n            <li nz-menu-item>\n              <a [routerLink]=\"'/keywords'\" routerLinkActive=\"active\">关键词管理</a>\n            </li>\n          </ul>\n        </li>\n      </ul>\n    </nz-sider>\n    <nz-layout>\n      <nz-content style=\"margin:0 16px;\">\n        <nz-breadcrumb [nzAutoGenerate]=\"true\" style=\"margin:1em 0;\">\n          <nz-breadcrumb-item>您所在的位置</nz-breadcrumb-item>\n        </nz-breadcrumb>\n        <div class=\"content\">\n          <router-outlet></router-outlet>\n        </div>\n      </nz-content>\n      <nz-footer style=\"text-align: center;\">©2019 杭州双成办公设备有限公司</nz-footer>\n    </nz-layout>\n    <ng-template #trigger>\n      <i nz-icon type=\"up\"></i>\n    </ng-template>\n  </nz-layout>\n</div>\n<!-- 消息列表 -->\n<nz-drawer [nzClosable]=\"false\" [nzOffsetX]=\"childrenVisible ? 180 : 0\" [nzWidth]=\"320\" [nzVisible]=\"visible\"\n  nzTitle=\"消息列表\" (nzOnClose)=\"close()\">\n  <nz-list [nzDataSource]=\"vegetables\" [nzRenderItem]=\"item\">\n    <ng-template #item let-item>\n      <nz-list-item [nzContent]=\"item\"></nz-list-item>\n    </ng-template>\n  </nz-list>\n  <div class=\"footer\">\n    <button type=\"button\" (click)=\"close()\" class=\"ant-btn\"><span>关闭</span></button>\n  </div>\n</nz-drawer>"
 
 /***/ }),
 
@@ -1056,6 +1067,220 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/menus/menus.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/pages/menus/menus.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-search (add)=\"showModal()\" (search)=\"searchData($event)\"></app-search>\n<nz-table #basicTable [nzData]=\"displayData\" nzBordered nzSize=\"middle\">\n  <thead>\n    <tr>\n      <th>导航名称</th>\n      <th>导航链接</th>\n      <th>排序</th>\n      <th>是否新窗口打开</th>\n      <th>操作</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let item of basicTable.data\">\n      <td>{{ item.name }}</td>\n      <td>{{ item.link }}</td>\n      <td>{{ item.serial }}</td>\n      <td>{{ item.target }}</td>\n      <td>\n        <app-premission (update)=\"updateRow(item)\" (delete)=\"deleteRow(item)\"></app-premission>\n      </td>\n    </tr>\n  </tbody>\n</nz-table>\n<!-- 编辑框 -->\n<nz-modal [nzWidth]=\"700\" [(nzVisible)]=\"isVisible\" nzTitle=\"{{modalTitle}}\" nzOkText=\"确定\" nzCancelText=\"取消\"\n  (nzOnOk)=\"handleOk()\" (nzOnCancel)=\"handleCancel()\" [nzFooter]=\"modalFooter\">\n  <form nz-form [formGroup]=\"validateForm\">\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>导航名称</nz-form-label>\n      <nz-form-control [nzSpan]=\"8\">\n        <input nz-input formControlName=\"name\" placeholder=\"请输入\" type=\"text\">\n        <nz-form-explain *ngIf=\"validateForm.get('name').dirty\">\n          <ng-container *ngIf=\"validateForm.get('name').hasError('required')\">\n            导航名称不能为空！\n          </ng-container>\n        </nz-form-explain>\n      </nz-form-control>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>链接</nz-form-label>\n      <nz-form-control [nzSpan]=\"8\">\n        <input nz-input formControlName=\"link\" placeholder=\"请输入\" type=\"text\">\n        <nz-form-explain *ngIf=\"validateForm.get('link').dirty\">\n          <ng-container *ngIf=\"validateForm.get('link').hasError('required')\">\n            导航链接不能为空！\n          </ng-container>\n        </nz-form-explain>\n      </nz-form-control>\n      <nz-form-label [nzSpan]=\"4\">排序</nz-form-label>\n      <nz-form-control [nzSpan]=\"8\">\n        <input nz-input formControlName=\"serial\" placeholder=\"请输入\" type=\"number\">\n      </nz-form-control>\n      <nz-form-label [nzSpan]=\"4\">新窗口打开</nz-form-label>\n      <nz-form-control [nzSpan]=\"8\">\n        <nz-switch formControlName=\"target\" nzCheckedChildren=\"开\" nzUnCheckedChildren=\"关\"></nz-switch>\n      </nz-form-control>\n    </nz-form-item>\n  </form>\n  <ng-template #modalFooter>\n    <button nz-button nzType=\"default\" (click)=\"resetForm()\">重置</button>\n    <button nz-button nzType=\"primary\" [disabled]=\"!validateForm.valid\"\n      (click)=\"submitForm(validateForm.value)\">保存</button>\n  </ng-template>\n</nz-modal>"
+
+/***/ }),
+
+/***/ "./src/app/pages/menus/menus.component.less":
+/*!**************************************************!*\
+  !*** ./src/app/pages/menus/menus.component.less ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL21lbnVzL21lbnVzLmNvbXBvbmVudC5sZXNzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/pages/menus/menus.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/pages/menus/menus.component.ts ***!
+  \************************************************/
+/*! exports provided: MenusComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenusComponent", function() { return MenusComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _servers_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../servers.service */ "./src/app/servers.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
+
+
+
+
+var MenusComponent = /** @class */ (function () {
+    function MenusComponent(activeRouter, server, fb) {
+        this.activeRouter = activeRouter;
+        this.server = server;
+        this.fb = fb;
+        // api
+        this.api_list = '/api/menuManage/list'; // 页面数据列表api
+        this.api_add = '/api/menuManage/add'; // 新增行api
+        this.api_update = '/api/menuManage/update'; // 更新行api
+        this.api_delete = '/api/menuManage/delete'; // 删除行api
+        this.api_upload = _environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].API + '/upload';
+        this.menuType = ''; //菜单名称
+        this.menuId = ''; //菜单id
+        this.isVisible = false; //默认显示modal
+        this.modalTitle = '新增菜单'; //model title
+        this.menus = []; //菜单类型列表
+        //列表相关数据
+        this.displayData = []; //存储列表数据
+        this.isLoading = false; //用于加载效果
+        this.Page = 1; //初始页码
+        this.Rows = 10; //显示行数
+        this.total = 1; //总条数
+        this.Sord = null; //正反序
+        this.OrderBy = null; //排序字段
+        this.loading = true; //开启加载
+        this.Sidx = '0';
+        this.colData = [];
+        //modal 参数
+        this.isOkLoading = false;
+        this.validateForm = this.fb.group({
+            name: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+            link: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+            serial: [null],
+            target: [null],
+        });
+    }
+    MenusComponent.prototype.ngOnInit = function () {
+        this.getMenus();
+    };
+    //获取菜单列表
+    MenusComponent.prototype.getMenus = function () {
+        var _this = this;
+        var options = {
+            api: this.api_list,
+            params: {}
+        };
+        this.server.getRxjsData(options).subscribe(function (data) {
+            _this.displayData = data.data;
+        });
+    };
+    //搜索列表
+    //搜索事件
+    MenusComponent.prototype.searchData = function (keyword, reset) {
+        var _this = this;
+        if (reset === void 0) { reset = false; }
+        this.isLoading = true;
+        if (reset) {
+            this.Page = 1;
+        }
+        this.loading = true;
+        this.getList(keyword, this.Page, this.Rows, this.Sidx).subscribe(function (data) {
+            _this.loading = false;
+            _this.total = data.total;
+            _this.colData = data.data;
+            _this.displayData = _this.colData.slice();
+            _this.isLoading = false;
+        });
+    };
+    MenusComponent.prototype.getList = function (keyword, pageIndex, pageSize, Sidx) {
+        if (pageIndex === void 0) { pageIndex = 1; }
+        if (pageSize === void 0) { pageSize = 10; }
+        var params = {};
+        params.name = keyword ? keyword : '';
+        params.type = this.menuType;
+        if (this.Page) {
+            params.Page = this.Page;
+        }
+        if (this.Rows) {
+            params.Rows = this.Rows;
+        }
+        if (this.Sidx) {
+            params.Sidx = this.Sidx;
+        }
+        if (this.Sord) {
+            params.Sord = this.Sord;
+        }
+        var options = {
+            api: this.api_list,
+            params: params
+        };
+        return this.server.getRxjsData(options);
+    };
+    //编辑和新增弹框
+    MenusComponent.prototype.showModal = function () {
+        this.menuId = '';
+        this.isVisible = true;
+        this.resetForm();
+    };
+    MenusComponent.prototype.handleOk = function () {
+        this.isVisible = false;
+    };
+    MenusComponent.prototype.handleCancel = function () {
+        this.isVisible = false;
+    };
+    //表单重置
+    MenusComponent.prototype.resetForm = function () {
+        this.validateForm.reset();
+        for (var key in this.validateForm.controls) {
+            this.validateForm.controls[key].markAsPristine();
+            this.validateForm.controls[key].updateValueAndValidity();
+        }
+    };
+    //保存表单数据
+    MenusComponent.prototype.submitForm = function (value) {
+        var _this = this;
+        var paramsObj = value;
+        if (this.menuId) {
+            paramsObj.id = this.menuId;
+        }
+        var options = {
+            api: paramsObj.id ? this.api_update : this.api_add,
+            params: paramsObj
+        };
+        var postData = this.server.postRxjsData(options);
+        postData.subscribe(function (data) {
+            _this.isVisible = false;
+            _this.getMenus();
+        });
+    };
+    //删除数据 
+    MenusComponent.prototype.deleteRow = function (value) {
+        var _this = this;
+        var options = {
+            api: this.api_delete + '/' + value._id,
+        };
+        var postPremissionData = this.server.postRxjsData(options);
+        postPremissionData.subscribe(function () {
+            _this.searchData();
+        });
+    };
+    //修改行
+    MenusComponent.prototype.updateRow = function (value) {
+        var _this = this;
+        this.menuId = value._id;
+        //初始化表单值
+        var initformData = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Observable"](function (observer) {
+            _this.validateForm.setValue({ name: value.name, link: value.link, serial: value.serial, target: value.target });
+            observer.next();
+        });
+        initformData.subscribe(function () {
+            _this.isVisible = true;
+        });
+    };
+    MenusComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-menus',
+            template: __webpack_require__(/*! ./menus.component.html */ "./src/app/pages/menus/menus.component.html"),
+            styles: [__webpack_require__(/*! ./menus.component.less */ "./src/app/pages/menus/menus.component.less")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _servers_service__WEBPACK_IMPORTED_MODULE_3__["ServersService"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
+    ], MenusComponent);
+    return MenusComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/posts/posts.component.html":
 /*!**************************************************!*\
   !*** ./src/app/pages/posts/posts.component.html ***!
@@ -1338,7 +1563,7 @@ var PostsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-search (add)=\"showModal()\"></app-search>\n<nz-table #basicTable [nzData]=\"displayData\" nzBordered nzSize=\"middle\">\n  <thead>\n    <tr>\n      <th>产品名称</th>\n      <th>产品分类</th>\n      <th>所属品牌</th>\n      <th>月租金</th>\n      <th>发布状态</th>\n      <th>创建时间</th>\n      <th>相关操作</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let item of basicTable.data\">\n      <td>{{ item.name }}</td>\n      <td>{{ item.category.label }}</td>\n      <td>{{ item.brand.label }}</td>\n      <td>{{item.priceMonth}}</td>\n      <td>{{ item.status }}</td>\n      <td>{{ item.createTime | date : 'yyyy-MM-dd HH:mm'}}</td>\n      <td>\n        <app-premission (update)=\"editRow(item)\" (delete)=\"deleteRow(item)\"></app-premission>\n      </td>\n    </tr>\n  </tbody>\n</nz-table>\n\n<!-- 编辑框 -->\n<nz-modal [nzWidth]=\"960\" [(nzVisible)]=\"isVisible\" nzTitle=\"{{modalTitle}}\" nzOkText=\"确定\" nzCancelText=\"取消\"\n  (nzOnOk)=\"handleOk()\" (nzOnCancel)=\"handleCancel()\" [nzFooter]=\"modalFooter\" [nzStyle]=\"{ top: '20px' }\">\n  <form nz-form [formGroup]=\"validateForm\" #myForm=\"ngForm\" >\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>产品名称</nz-form-label>\n      <nz-form-control [nzSpan]=\"20\">\n        <input nz-input formControlName=\"name\" placeholder=\"请输入\" type=\"text\">\n        <nz-form-explain *ngIf=\"validateForm.get('name').dirty\">\n          <ng-container *ngIf=\"validateForm.get('name').hasError('required')\">\n            产品名称不能为空！\n          </ng-container>\n        </nz-form-explain>\n      </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>月租金</nz-form-label>\n      <nz-form-control [nzSpan]=\"4\">\n        <input nz-input formControlName=\"priceMonth\" placeholder=\"请输入\" type=\"number\" min=1>\n      </nz-form-control>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>产品分类</nz-form-label>\n      <nz-form-control [nzSpan]=\"4\">\n        <nz-select nzPlaceHolder=\"请选择\" formControlName=\"category\">\n          <nz-option *ngFor=\"let p of categorys\" [nzValue]=\"p\" [nzLabel]=\"p.label\"></nz-option>\n        </nz-select>\n      </nz-form-control>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>所属品牌</nz-form-label>\n      <nz-form-control [nzSpan]=\"4\">\n        <nz-select nzPlaceHolder=\"请选择\" formControlName=\"brand\">\n          <nz-option *ngFor=\"let p of brands\" [nzValue]=\"p\" [nzLabel]=\"p.label\"></nz-option>\n        </nz-select>\n      </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\">产品描述</nz-form-label>\n      <nz-form-control [nzSpan]=\"20\">\n        <textarea nz-input rows=\"3\" formControlName=\"description\" placeholder=\"请输入\" type=\"text\"></textarea>\n      </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\">产品缩略图</nz-form-label>\n      <nz-form-control [nzSpan]=\"20\">\n        <nz-upload nzAction=\"{{api_upload}}\" nzListType=\"picture-card\" nzName=\"upload\" [(nzFileList)]=\"fileList\"\n          [nzShowButton]=\"fileList.length < 10\" [nzPreview]=\"handlePreview\" [nzMultiple]=\"true\">\n          <i nz-icon type=\"plus\"></i>\n          <div class=\"ant-upload-text\">上传</div>\n        </nz-upload>\n        <nz-modal [nzVisible]=\"previewVisible\" [nzContent]=\"modalContent\" [nzFooter]=\"null\"\n          (nzOnCancel)=\"previewVisible=false\">\n          <ng-template #modalContent>\n            <img [src]=\"previewImage\" [ngStyle]=\"{ 'width': '100%' }\" />\n          </ng-template>\n        </nz-modal>\n      </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\">详细内容</nz-form-label>\n      <nz-form-control [nzSpan]=\"20\">\n        <form #myForm=\"ngForm\">\n          <div class=\"form-group has-feedback\" [ngClass]=\"{ 'has-error': myckeditor.invalid && myckeditor.touched }\">\n            <ckeditor [(ngModel)]=\"mycontent\" #myckeditor=\"ngModel\" name=\"myckeditor\" required [config]=\"ckeConfig\"\n              debounce=\"700\">\n            </ckeditor>\n          </div>\n        </form>\n      </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\">是否启用</nz-form-label>\n      <nz-form-control [nzSpan]=\"1\">\n        <nz-switch nzSize=\"small\" formControlName=\"status\"></nz-switch>\n      </nz-form-control>\n      <nz-form-label [nzSpan]=\"4\">是否推荐</nz-form-label>\n      <nz-form-control [nzSpan]=\"1\">\n        <nz-switch nzSize=\"small\" formControlName=\"isTop\"></nz-switch>\n      </nz-form-control>\n    </nz-form-item>\n  </form>\n  <ng-template #modalFooter>\n    <button nz-button nzType=\"default\" (click)=\"resetForm()\">重置</button>\n    <button nz-button nzType=\"primary\" [disabled]=\"!validateForm.valid\"\n      (click)=\"submitForm(validateForm.value)\">保存</button>\n  </ng-template>\n</nz-modal>"
+module.exports = "<app-search (add)=\"showModal()\"></app-search>\n<nz-table #basicTable [nzData]=\"displayData\" nzBordered nzSize=\"middle\">\n  <thead>\n    <tr>\n      <th>产品名称</th>\n      <th>产品分类</th>\n      <th>所属品牌</th>\n      <th>月租金</th>\n      <th>发布状态</th>\n      <th>创建时间</th>\n      <th>相关操作</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let item of basicTable.data\">\n      <td>{{ item.name }}</td>\n      <td>{{ item.category.label }}</td>\n      <td>{{ item.brand.label }}</td>\n      <td>{{item.priceMonth}}</td>\n      <td>{{ item.status }}</td>\n      <td>{{ item.createTime | date : 'yyyy-MM-dd HH:mm'}}</td>\n      <td>\n        <app-premission (update)=\"editRow(item)\" (delete)=\"deleteRow(item)\"></app-premission>\n      </td>\n    </tr>\n  </tbody>\n</nz-table>\n\n<!-- 编辑框 -->\n<nz-modal [nzWidth]=\"960\" [(nzVisible)]=\"isVisible\" nzTitle=\"{{modalTitle}}\" nzOkText=\"确定\" nzCancelText=\"取消\"\n  (nzOnOk)=\"handleOk()\" (nzOnCancel)=\"handleCancel()\" [nzFooter]=\"modalFooter\" [nzStyle]=\"{ top: '20px' }\">\n  <form nz-form [formGroup]=\"validateForm\" #myForm=\"ngForm\" >\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>产品标题</nz-form-label>\n      <nz-form-control [nzSpan]=\"12\">\n        <input nz-input formControlName=\"name\" placeholder=\"请输入\" type=\"text\">\n        <nz-form-explain *ngIf=\"validateForm.get('name').dirty\">\n          <ng-container *ngIf=\"validateForm.get('name').hasError('required')\">\n            产品标题不能为空！\n          </ng-container>\n        </nz-form-explain>\n      </nz-form-control>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>产品型号</nz-form-label>\n      <nz-form-control [nzSpan]=\"4\">\n        <input nz-input formControlName=\"code\" placeholder=\"请输入\" type=\"text\">\n        <nz-form-explain *ngIf=\"validateForm.get('code').dirty\">\n          <ng-container *ngIf=\"validateForm.get('code').hasError('required')\">\n            产品型号不能为空！\n          </ng-container>\n        </nz-form-explain>\n      </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>月租金</nz-form-label>\n      <nz-form-control [nzSpan]=\"4\">\n        <input nz-input formControlName=\"priceMonth\" placeholder=\"请输入\" type=\"number\" min=1>\n      </nz-form-control>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>产品分类</nz-form-label>\n      <nz-form-control [nzSpan]=\"4\">\n        <nz-select nzPlaceHolder=\"请选择\" formControlName=\"category\">\n          <nz-option *ngFor=\"let p of categorys\" [nzValue]=\"p\" [nzLabel]=\"p.label\"></nz-option>\n        </nz-select>\n      </nz-form-control>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>所属品牌</nz-form-label>\n      <nz-form-control [nzSpan]=\"4\">\n        <nz-select nzPlaceHolder=\"请选择\" formControlName=\"brand\">\n          <nz-option *ngFor=\"let p of brands\" [nzValue]=\"p\" [nzLabel]=\"p.label\"></nz-option>\n        </nz-select>\n      </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>保底消费</nz-form-label>\n      <nz-form-control [nzSpan]=\"20\">\n        <input nz-input formControlName=\"minShopping\" placeholder=\"请输入\" type=\"text\">\n      </nz-form-control>\n      <nz-form-explain *ngIf=\"validateForm.get('minShopping').dirty\">\n        <ng-container *ngIf=\"validateForm.get('minShopping').hasError('required')\">\n          保底消费不能为空！\n        </ng-container>\n      </nz-form-explain>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\" nzRequired>使用消费</nz-form-label>\n      <nz-form-control [nzSpan]=\"20\">\n        <input nz-input formControlName=\"useShopping\" placeholder=\"请输入\" type=\"text\">\n      </nz-form-control>\n      <nz-form-explain *ngIf=\"validateForm.get('useShopping').dirty\">\n        <ng-container *ngIf=\"validateForm.get('useShopping').hasError('required')\">\n          使用消费不能为空！\n        </ng-container>\n      </nz-form-explain>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\">产品描述</nz-form-label>\n      <nz-form-control [nzSpan]=\"20\">\n        <textarea nz-input rows=\"3\" formControlName=\"description\" placeholder=\"请输入\" type=\"text\"></textarea>\n      </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\">产品缩略图</nz-form-label>\n      <nz-form-control [nzSpan]=\"20\">\n        <nz-upload nzAction=\"{{api_upload}}\" nzListType=\"picture-card\" nzName=\"upload\" [(nzFileList)]=\"fileList\"\n          [nzShowButton]=\"fileList.length < 10\" [nzPreview]=\"handlePreview\" [nzMultiple]=\"true\">\n          <i nz-icon type=\"plus\"></i>\n          <div class=\"ant-upload-text\">上传</div>\n        </nz-upload>\n        <nz-modal [nzVisible]=\"previewVisible\" [nzContent]=\"modalContent\" [nzFooter]=\"null\"\n          (nzOnCancel)=\"previewVisible=false\">\n          <ng-template #modalContent>\n            <img [src]=\"previewImage\" [ngStyle]=\"{ 'width': '100%' }\" />\n          </ng-template>\n        </nz-modal>\n      </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\">详细内容</nz-form-label>\n      <nz-form-control [nzSpan]=\"20\">\n        <form #myForm=\"ngForm\">\n          <div class=\"form-group has-feedback\" [ngClass]=\"{ 'has-error': myckeditor.invalid && myckeditor.touched }\">\n            <ckeditor [(ngModel)]=\"mycontent\" #myckeditor=\"ngModel\" name=\"myckeditor\" required [config]=\"ckeConfig\"\n              debounce=\"700\">\n            </ckeditor>\n          </div>\n        </form>\n      </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n      <nz-form-label [nzSpan]=\"4\">是否启用</nz-form-label>\n      <nz-form-control [nzSpan]=\"1\">\n        <nz-switch nzSize=\"small\" formControlName=\"status\"></nz-switch>\n      </nz-form-control>\n      <nz-form-label [nzSpan]=\"4\">是否推荐</nz-form-label>\n      <nz-form-control [nzSpan]=\"1\">\n        <nz-switch nzSize=\"small\" formControlName=\"isTop\"></nz-switch>\n      </nz-form-control>\n    </nz-form-item>\n  </form>\n  <ng-template #modalFooter>\n    <button nz-button nzType=\"default\" (click)=\"resetForm()\">重置</button>\n    <button nz-button nzType=\"primary\" [disabled]=\"!validateForm.valid\"\n      (click)=\"submitForm(validateForm.value)\">保存</button>\n  </ng-template>\n</nz-modal>"
 
 /***/ }),
 
@@ -1427,6 +1652,9 @@ var ProductsComponent = /** @class */ (function () {
             priceMonth: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
             status: [null],
             isTop: [null],
+            code: [null],
+            minShopping: [null],
+            useShopping: [null],
         });
     }
     ProductsComponent.prototype.ngOnInit = function () {
@@ -1537,7 +1765,7 @@ var ProductsComponent = /** @class */ (function () {
         //初始化表单值
         var initformData = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {
             _this.mycontent = item.content;
-            _this.validateForm.setValue({ name: item.name, status: item.status, isTop: item.isTop, description: item.description, content: item.content, category: selectCategory, brand: selectBrand, priceMonth: item.priceMonth });
+            _this.validateForm.setValue({ name: item.name, status: item.status, isTop: item.isTop, description: item.description, content: item.content, category: selectCategory, brand: selectBrand, priceMonth: item.priceMonth, code: item.code || '', minShopping: item.minShopping || '', useShopping: item.useShopping || '' });
             observer.next();
         });
         initformData.subscribe(function () {
