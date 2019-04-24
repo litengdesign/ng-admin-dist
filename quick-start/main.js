@@ -1237,7 +1237,7 @@ var PostsComponent = /** @class */ (function () {
             var obj = {
                 uid: item.uid,
                 responseUrl: item.url,
-                url: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].API + '/' + item.url,
+                url: item.url,
             };
             _this.fileList.push(obj);
         });
@@ -1518,7 +1518,7 @@ var ProductsComponent = /** @class */ (function () {
             var obj = {
                 uid: item.uid,
                 responseUrl: item.url,
-                url: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].API + '/' + item.url,
+                url: item.url,
             };
             _this.fileList.push(obj);
         });
